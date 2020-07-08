@@ -9,8 +9,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    let vm: ContentViewModel = .init()
     var body: some View {
-        Text("Hello, World!")
+        VStack(spacing: 32) {
+            Spacer()
+            Button(action: {
+                self.vm.getSample(proto: .grpc)
+            }) {
+                Text("gRPC").font(.headline)
+            }
+            Button(action: {
+                self.vm.getSample(proto: .http)
+            }) {
+                Text("HTTP").font(.headline)
+            }
+            Spacer()
+        }
     }
 }
 

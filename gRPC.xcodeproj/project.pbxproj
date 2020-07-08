@@ -15,6 +15,7 @@
 		9945355B24B5C47300BADC2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9945355924B5C47300BADC2E /* LaunchScreen.storyboard */; };
 		9945356424B5C55200BADC2E /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 9945356324B5C55200BADC2E /* SwiftProtobuf */; };
 		9945356724B5C5A700BADC2E /* SwiftGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 9945356624B5C5A700BADC2E /* SwiftGRPC */; };
+		9945356924B5D0F600BADC2E /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9945356824B5D0F600BADC2E /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9945355724B5C47300BADC2E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9945355A24B5C47300BADC2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9945355C24B5C47300BADC2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9945356824B5D0F600BADC2E /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				9945354E24B5C47200BADC2E /* AppDelegate.swift */,
 				9945355024B5C47200BADC2E /* SceneDelegate.swift */,
 				9945355224B5C47200BADC2E /* ContentView.swift */,
+				9945356824B5D0F600BADC2E /* ContentViewModel.swift */,
 				9945355424B5C47300BADC2E /* Assets.xcassets */,
 				9945355924B5C47300BADC2E /* LaunchScreen.storyboard */,
 				9945355C24B5C47300BADC2E /* Info.plist */,
@@ -158,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9945356924B5D0F600BADC2E /* ContentViewModel.swift in Sources */,
 				9945354F24B5C47200BADC2E /* AppDelegate.swift in Sources */,
 				9945355124B5C47200BADC2E /* SceneDelegate.swift in Sources */,
 				9945355324B5C47200BADC2E /* ContentView.swift in Sources */,
