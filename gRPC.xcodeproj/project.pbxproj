@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		9945355524B5C47300BADC2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9945355424B5C47300BADC2E /* Assets.xcassets */; };
 		9945355824B5C47300BADC2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9945355724B5C47300BADC2E /* Preview Assets.xcassets */; };
 		9945355B24B5C47300BADC2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9945355924B5C47300BADC2E /* LaunchScreen.storyboard */; };
+		9945356424B5C55200BADC2E /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 9945356324B5C55200BADC2E /* SwiftProtobuf */; };
+		9945356724B5C5A700BADC2E /* SwiftGRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 9945356624B5C5A700BADC2E /* SwiftGRPC */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9945356724B5C5A700BADC2E /* SwiftGRPC in Frameworks */,
+				9945356424B5C55200BADC2E /* SwiftProtobuf in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +95,10 @@
 			dependencies = (
 			);
 			name = gRPC;
+			packageProductDependencies = (
+				9945356324B5C55200BADC2E /* SwiftProtobuf */,
+				9945356624B5C5A700BADC2E /* SwiftGRPC */,
+			);
 			productName = gRPC;
 			productReference = 9945354B24B5C47200BADC2E /* gRPC.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +127,10 @@
 				Base,
 			);
 			mainGroup = 9945354224B5C47200BADC2E;
+			packageReferences = (
+				9945356224B5C55200BADC2E /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+				9945356524B5C5A700BADC2E /* XCRemoteSwiftPackageReference "grpc-swift" */,
+			);
 			productRefGroup = 9945354C24B5C47200BADC2E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -342,6 +354,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9945356224B5C55200BADC2E /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-protobuf";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.10.0;
+			};
+		};
+		9945356524B5C5A700BADC2E /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/grpc/grpc-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9945356324B5C55200BADC2E /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9945356224B5C55200BADC2E /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+		9945356624B5C5A700BADC2E /* SwiftGRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9945356524B5C5A700BADC2E /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = SwiftGRPC;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9945354324B5C47200BADC2E /* Project object */;
 }
