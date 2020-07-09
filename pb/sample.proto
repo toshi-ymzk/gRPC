@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package pb;
+option go_package = "../pb";
+
+service SampleService {
+  rpc GetSample (SampleRequest) returns (SampleResponse) {}
+}
+message SampleRequest {
+  string id = 1;
+}
+message SampleResponse {
+  string name = 1;
+}

@@ -18,9 +18,9 @@ final class ContentViewModel {
     func getSample(proto: Protocol) {
         switch proto {
         case .grpc:
-            break
+            gRPCClient().getSample()
         case .http:
-            break
+            HTTPClient().getSample()
         }
     }
 }
