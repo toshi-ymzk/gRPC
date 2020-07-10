@@ -15,9 +15,10 @@ enum Protocol {
 }
 
 final class ContentViewModel: ObservableObject {
-    
+
     var sample: Pb_SampleResponse = .init()
-    @Published var showingAlert: Bool = false
+    var alertMessage: String = ""
+    @Published var isAlerting: Bool = false
 
     var cancellables: [AnyCancellable] = .init()
 
@@ -26,32 +27,35 @@ final class ContentViewModel: ObservableObject {
         case .grpc:
             gRPCClient().getSample()
                 .receive(on: DispatchQueue.main)
-                .sink(receiveCompletion: { completion in
+                .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
                     break
                 case .failure(let err):
-                    print(err)
+                    self?.showAlert(err.localizedDescription)
                 }
-            }) { sample in
-                self.sample = sample
-                self.showingAlert = true
+            }) { [weak self] sample in
+                self?.showAlert(sample.debugDescription)
             }.store(in: &cancellables)
 
         case .http:
             HTTPClient().getSample()
                 .receive(on: DispatchQueue.main)
-                .sink(receiveCompletion: { completion in
+                .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
                     break
                 case .failure(let err):
-                    print(err)
+                    self?.showAlert(err.localizedDescription)
                 }
-            }) { sample in
-                self.sample = sample
-                self.showingAlert = true
+            }) { [weak self] sample in
+                self?.showAlert(sample.debugDescription)
             }.store(in: &cancellables)
         }
+    }
+    
+    private func showAlert(_ message: String) {
+        alertMessage = message
+        isAlerting = true
     }
 }

@@ -9,5 +9,5 @@
 import Combine
 
 protocol Client {
-    func getSample() -> Future<Pb_SampleResponse, Error>
+    func getSample() -> AnyPublisher<Pb_SampleResponse, Error>
 }

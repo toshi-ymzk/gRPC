@@ -11,7 +11,7 @@ import Combine
 
 class gRPCClient: Client {
     
-    func getSample() -> Future<Pb_SampleResponse, Error> {
+    func getSample() -> AnyPublisher<Pb_SampleResponse, Error> {
         return Future<Pb_SampleResponse, Error> { promise in
             let client = Pb_SampleServiceServiceClient(address: "127.0.0.1:2021", secure: false)
             let req = Pb_SampleRequest()
@@ -21,6 +21,6 @@ class gRPCClient: Client {
             } catch let err {
                 promise(.failure(err))
             }
-        }
+        }.eraseToAnyPublisher()
     }
 }
