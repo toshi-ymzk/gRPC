@@ -6,6 +6,8 @@
 //  Copyright © 2020 Toshihiro Yamazaki. All rights reserved.
 //
 
+import Combine
+
 protocol Client {
-    func getSample()
+    func getSample() -> Future<Pb_SampleResponse, Error>
 }

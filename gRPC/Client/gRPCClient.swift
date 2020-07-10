@@ -7,14 +7,20 @@
 //
 
 import Foundation
+import Combine
 
 class gRPCClient: Client {
     
-    func getSample() {
-        let client = Pb_SampleServiceServiceClient(address: "127.0.0.1:2021", secure: false)
-        let req = Pb_SampleRequest()
-        guard let sample = try? client.getSample(req) else {
-            return
+    func getSample() -> Future<Pb_SampleResponse, Error> {
+        return Future<Pb_SampleResponse, Error> { promise in
+            let client = Pb_SampleServiceServiceClient(address: "127.0.0.1:2021", secure: false)
+            let req = Pb_SampleRequest()
+            do {
+                let sample = try client.getSample(req)
+                promise(.success(sample))
+            } catch let err {
+                promise(.failure(err))
+            }
         }
     }
 }

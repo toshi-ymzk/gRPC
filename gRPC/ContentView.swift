@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    let vm: ContentViewModel = .init()
+    @ObservedObject var vm: ContentViewModel = .init()
     var body: some View {
         VStack(spacing: 32) {
             Spacer()
@@ -17,11 +17,15 @@ struct ContentView: View {
                 self.vm.getSample(proto: .grpc)
             }) {
                 Text("gRPC").font(.headline)
+            }.alert(isPresented: $vm.showingAlert) {
+                Alert(title: Text("Success: \(vm.sample.name)"))
             }
             Button(action: {
                 self.vm.getSample(proto: .http)
             }) {
                 Text("HTTP").font(.headline)
+            }.alert(isPresented: $vm.showingAlert) {
+                Alert(title: Text("Success: \(vm.sample.name)"))
             }
             Spacer()
         }
